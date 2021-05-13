@@ -13,29 +13,19 @@ body {
 
 #header {
     flex-direction: row;
-    background-color: rgb(46, 116, 181);
     border-color: rgb(46, 116, 181);
-    padding: 15px 0px;
-    height: 50px;
     justify-content: space-around;
     align-items: center;
 }
 
 #header a {
+    background: linear-gradient(rgb(37, 0, 78), rgb(46, 116, 181), rgb(46, 116, 181));
+    width: 100%;
+    padding: 24px 30px;
     text-decoration: none;
     color: white;
-    text-align: center;
-    font-size: 36px;
-}
-
-@media screen and (max-width: 400px) {
-    #header #title {
-        padding: 20px 0px;
-    }
-}
-
-.body-container {
-    overflow: hidden;
+    text-align: left;
+    font-size: 28px;
 }
 
 #sidebar {
@@ -43,11 +33,15 @@ body {
     border-color: rgb(46, 116, 181);
     color: white;
     width: 200px;
-    position: absolute;
-    top: 60px;
-    bottom: 0px;
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    padding-top: 80px;
     margin-left: -40px;
     flex-direction: column;
+    left: 0px;
+    transition: 500ms;
+    z-index: -1;
 }
 
 #sidebar li {
@@ -87,25 +81,90 @@ body {
 
 #content {
     justify-content: space-around;
-    width: 80%;
-    margin-left: 200px;
-    text-align: center;
+    width: 100%;
+    margin-left: 160px; /* from sidebar */
+    margin-bottom: 50px; /* from footer */
+    padding: 0px 30px;
+    text-align: left;
+    transition: 300ms;    
+}
+
+#content h1 {
     color: rgb(36, 101, 161);
 }
 
-#content-box {
-    padding: 20px;
-    width: 60%;
-    background-color: red;
-    border-radius: 20px;
+#content-block {
+    margin-bottom: 40px;
 }
 
-@media screen and (max-width: 800px) {
-    #sidebar {
+#footer {
+    /*height: 70px;*/
+    width: 100%;
+    
+    /*bottom: 0px;*/
+    /*position: fixed;*/
+}
+
+#footer-boring {
+    position:fixed;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index: 0;
+}
+
+#footer-pop {
+    position:absolute;
+    height:70px;
+    right:0; 
+    left:0;
+    z-index: 1;
+}
+
+#footer a {
+    text-decoration: none;
+    color: aliceblue
+}
+
+#footer-container {
+    width: 100%;
+    justify-content: center;
+    background-color: rgb(46, 116, 181);
+}
+
+#footer-container div {
+    padding: 0px 10px;
+}
+
+#f-contacto {
+    font-size: 24px;
+    color: aliceblue;
+    background: rgb(46, 116, 181);
+}
+
+@media screen and (max-width: 320px) {
+    /* EXTREME CASES */
+    #header {
         display: none;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    /* SMALL DEVICES */
+    #header a {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) { 
+    /* HIDE SIDEBAR */
+    #sidebar {
+        left: -160px;
+        transition: 300ms;
     }
     #content {
         width: 100%;
         margin-left: 0px;
+        transition: 1000ms; /* don't disturb lecture */
     }
 }
